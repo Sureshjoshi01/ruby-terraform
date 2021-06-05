@@ -29,7 +29,7 @@ resource "kubernetes_deployment" "http-server" {
           image = "sureshjoshi01/http_server:latest"
           name  = "http-server"
 
-          liveness_probe {
+         /* liveness_probe {
             http_get {
               path = "/healthcheck"
               port = 80
@@ -46,7 +46,7 @@ resource "kubernetes_deployment" "http-server" {
  
             initial_delay_seconds = 2
             period_seconds        = 5
-          }
+          }*/
         }
       }
     }
