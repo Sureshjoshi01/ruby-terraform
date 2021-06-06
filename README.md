@@ -5,3 +5,8 @@ Serves on port 80.
 All other paths return "Well, hello there!"
 
 `$ ruby webserver.rb`
+
+Architecture 
+
+
+

@@ -10,7 +10,12 @@ pipeline {
           steps {
              sh 'ansible-playbook -i hosts playbook.yaml'
           }
-      }    
+      }  
+       stage('Initializing  terraform  ') {
+          steps {
+             sh 'terraform init'
+          }
+      }     
       stage('Deploy Image to Kubernetes cluster using terraform  ') {
           steps {
              sh 'terraform apply -auto-approve'
