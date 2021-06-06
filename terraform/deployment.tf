@@ -36,6 +36,7 @@ resource "kubernetes_deployment" "http-server" {
         container {
           image = "sureshjoshi01/http_server:latest"
           name  = "http-server"
+          
 
           env {
             name = "Podip"

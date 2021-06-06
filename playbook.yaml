@@ -1,3 +1,5 @@
+
+#ansible playbook to create docker image. 
 ---
 - name: Build an docker image 
   hosts: localhost
@@ -8,7 +10,7 @@
       command: docker build -t sureshjoshi01/http_server:latest .
 
     - name: login  docker registry 
-      command: docker login  --username <user_name>  --password <password>
+      command: docker login  --username sureshjoshi01  --password Rocky@007
 
     - name: push image to docker registry
       command: docker push sureshjoshi01/http_server:latest
