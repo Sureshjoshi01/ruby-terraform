@@ -25,7 +25,7 @@ Terraform is used to create a deployment for the app and deploy to the kubernete
 
 Jenkins
 <---------->
-Jenkins pipeline  to orchestrate the - 
+Jenkins pipeline for continous deployment and to orchestrate the below - 
 a) repository clone
 b) ansible playbook run 
 c) terraform apply to deploy to the kubernetes cluster
