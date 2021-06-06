@@ -36,27 +36,34 @@ resource "kubernetes_deployment" "http-server" {
         container {
           image = "sureshjoshi01/http_server:latest"
           name  = "http-server"
-          port {
-            container_port = 80
+
+          env {
+            name = "Podip"
+            value_from{
+              field_ref {
+                field_path = "status.podIP"
+              } 
+            }
           }
-         /* liveness_probe {
-            http_get {
-              path = "/healthcheck"
-              port = 80
+        # using  liveness command healthcheck as httpget was failing with conention refused 
+          liveness_probe {
+            exec {
+              command = ["sh" , "-c", "curl -i  $Podip/healthcheck"]
+              
             }
 
           initial_delay_seconds = 5
             period_seconds        = 5
           }
+          # using  liveness command healthcheck as httpget was failing with conention refused 
           readiness_probe {
-            http_get {
-              path = "/healthcheck"
-              port = 80
+            exec {
+              command = ["sh" , "-c", "curl -i  $Podip/healthcheck"]
+              
             }
- 
-            initial_delay_seconds = 2
+            initial_delay_seconds = 5
             period_seconds        = 5
-          }*/
+          }
         }
       }
     }
