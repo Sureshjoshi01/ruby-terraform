@@ -10,6 +10,14 @@ resource "kubernetes_deployment" "http-server" {
 
   spec {
     replicas = 1
+    
+    strategy { 
+      type = "RollingUpdate"
+      rolling_update {
+      max_surge = 1
+      max_unavailable = 1
+      } 
+    }
 
     selector {
       match_labels = {
@@ -28,7 +36,9 @@ resource "kubernetes_deployment" "http-server" {
         container {
           image = "sureshjoshi01/http_server:latest"
           name  = "http-server"
-
+          port {
+            container_port = 80
+          }
          /* liveness_probe {
             http_get {
               path = "/healthcheck"
