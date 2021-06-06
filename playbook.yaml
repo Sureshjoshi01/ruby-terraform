@@ -4,14 +4,13 @@
 - name: Build an docker image 
   hosts: local
   connection: local
-  remote_user: sureshjoshi 
   
   tasks:
     - name: build the image
       command: docker build -t sureshjoshi01/http_server:latest .
 
     - name: login  docker registry 
-      command: docker login  --username sureshjoshi01  --password Rocky@007
+      command: docker login  --username <username>  --password <password>
 
     - name: push image to docker registry
       command: docker push sureshjoshi01/http_server:latest
