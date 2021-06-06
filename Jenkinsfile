@@ -3,7 +3,7 @@ pipeline {
     stages {
        stage('Repository  clone') {
           steps {
-             git clone https://github.com/Sureshjoshi01/adjust-task
+             sh 'git clone https://github.com/Sureshjoshi01/adjust-task'
           }
       }     
       stage('Build latest Docker Image ') {
