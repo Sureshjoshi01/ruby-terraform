@@ -2,7 +2,7 @@
 #ansible playbook to create docker image. 
 ---
 - name: Build an docker image 
-  hosts: localhost
+  hosts: local
   connection: local
 
   tasks:
