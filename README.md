@@ -54,7 +54,7 @@ Step 5 - run below commands
          terraform init 
          terraform apply 
 
-To check that application is deployed successfully, the the app url by running below command - 
+To check that application is deployed successfully, get the app url by running below command - 
 minikube service --url http-server
 
 
